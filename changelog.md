@@ -26,6 +26,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 - Nothing.
 
+## 0.2.0-preview - 2019-12-09
+- [Commits](https://github.com/unity-game-framework/ugf-module-coroutines/compare/0.1.0-preview...0.2.0-preview)
+- [Milestone](https://github.com/unity-game-framework/ugf-module-coroutines/milestone/2?closed=1)
+
+### Added
+- Package dependencies:
+    - `com.ugf.application`: `3.0.0-preview`.
+
+### Changed
+- Update `UGF.Application` package.
+
+### Removed
+- Package dependencies:
+    - `com.ugf.module`: `0.2.0-preview`.
+
 ## 0.1.0-preview - 2019-10-10
 - [Commits](https://github.com/unity-game-framework/ugf-module-coroutines/compare/b36632a...0.1.0-preview)
 - [Milestone](https://github.com/unity-game-framework/ugf-module-coroutines/milestone/1?closed=1)
