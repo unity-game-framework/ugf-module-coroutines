@@ -1,13 +1,16 @@
 using System.Collections;
 using UGF.Application.Runtime;
+using UGF.Coroutines.Runtime;
+using UGF.RuntimeTools.Runtime.Providers;
 
 namespace UGF.Module.Coroutines.Runtime
 {
     public interface ICoroutineModule : IApplicationModule
     {
-        ICoroutineModuleDescription Description { get; }
+        new ICoroutineModuleDescription Description { get; }
+        IProvider<string, ICoroutineExecuter> Executers { get; }
 
-        void Start(IEnumerator routine);
-        void Stop(IEnumerator routine);
+        void Start(IEnumerator enumerator);
+        void Stop(IEnumerator enumerator);
     }
 }

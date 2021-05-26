@@ -1,50 +1,58 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UGF.Application.Runtime;
-using UGF.Coroutines.Runtime.Unity;
+using UGF.Coroutines.Runtime;
+using UGF.RuntimeTools.Runtime.Providers;
 
 namespace UGF.Module.Coroutines.Runtime
 {
-    public class CoroutineModule : ApplicationModuleBase, ICoroutineModule
+    public class CoroutineModule : ApplicationModule<CoroutineModuleDescription>, ICoroutineModule
     {
-        public ICoroutineModuleDescription Description { get; }
+        public IProvider<string, ICoroutineExecuter> Executers { get; }
 
-        private CoroutineExecuterUnity m_executer;
+        ICoroutineModuleDescription ICoroutineModule.Description { get { return Description; } }
 
-        public CoroutineModule(ICoroutineModuleDescription description)
+        public CoroutineModule(CoroutineModuleDescription description, IApplication application) : this(description, application, new Provider<string, ICoroutineExecuter>())
         {
-            Description = description ?? throw new ArgumentNullException(nameof(description));
+        }
+
+        public CoroutineModule(CoroutineModuleDescription description, IApplication application, IProvider<string, ICoroutineExecuter> executers) : base(description, application)
+        {
+            Executers = executers ?? throw new ArgumentNullException(nameof(executers));
         }
 
         protected override void OnInitialize()
         {
             base.OnInitialize();
 
-            m_executer = new CoroutineExecuterUnity("CoroutineModuleExecuter", Description.DontDestroyOnLoadExecuter);
+            foreach (KeyValuePair<string, ICoroutineExecuterBuilder> pair in Description.Executers)
+            {
+                ICoroutineExecuter executer = pair.Value.Build();
+
+                Executers.Add(pair.Key, executer);
+            }
         }
 
         protected override void OnUninitialize()
         {
             base.OnUninitialize();
 
-            m_executer.Dispose();
-            m_executer = null;
+            Executers.Clear();
         }
 
-        public void Start(IEnumerator routine)
+        public void Start(IEnumerator enumerator)
         {
-            if (routine == null) throw new ArgumentNullException(nameof(routine));
-            if (m_executer == null) throw new InvalidOperationException("Executer not created.");
+            ICoroutineExecuter executer = Executers.Get(Description.DefaultExecuterId);
 
-            m_executer.Start(routine);
+            executer.Start(enumerator);
         }
 
-        public void Stop(IEnumerator routine)
+        public void Stop(IEnumerator enumerator)
         {
-            if (routine == null) throw new ArgumentNullException(nameof(routine));
-            if (m_executer == null) throw new InvalidOperationException("Executer not created.");
+            ICoroutineExecuter executer = Executers.Get(Description.DefaultExecuterId);
 
-            m_executer.Stop(routine);
+            executer.Stop(enumerator);
         }
     }
 }

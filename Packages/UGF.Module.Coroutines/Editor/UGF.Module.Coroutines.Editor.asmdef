@@ -1,0 +1,19 @@
+{
+    "name": "UGF.Module.Coroutines.Editor",
+    "rootNamespace": "UGF.Module.Coroutines.Editor",
+    "references": [
+        "GUID:43ef405f9d8c11f4fb58eb398195187c",
+        "GUID:abdd615e45137c74ca2ce9c636c78c15"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

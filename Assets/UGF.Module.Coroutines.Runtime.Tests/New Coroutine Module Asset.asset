@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f16bd0a6d6b98f4984fb7e5a443716c, type: 3}
+  m_Name: New Coroutine Module Asset
+  m_EditorClassIdentifier: 
+  m_defaultExecuter: f6885001a3a32ac4082d9d688f40f0af
+  m_executers:
+  - m_guid: f6885001a3a32ac4082d9d688f40f0af
+    m_asset: {fileID: 11400000, guid: f6885001a3a32ac4082d9d688f40f0af, type: 2}
