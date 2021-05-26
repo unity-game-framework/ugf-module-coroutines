@@ -4,17 +4,17 @@
   "version": "0.2.0-preview",
   "unity": "2019.3",
   "apiCompatibility": ".NET Standard 2.0",
-  "description": "No description.",
+  "description": "Module to manage coroutines run in application.",
   "author": {
     "name": "Unity Game Framework",
     "url": "https://github.com/unity-game-framework"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git://github.com/unity-game-framework/ugf-module-coroutines.git"
   },
-  "changelogUrl": "",
-  "licensesUrl": "",
+  "changelogUrl": "https://github.com/unity-game-framework/ugf-module-coroutines/blob/main/changelog.md",
+  "licensesUrl": "https://github.com/unity-game-framework/ugf-module-coroutines/blob/main/license",
   "publishConfig": {
     "registry": "https://unitygameframework.jfrog.io/artifactory/api/npm/default"
   },
