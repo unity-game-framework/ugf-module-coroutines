@@ -1,7 +1,11 @@
+using System.Collections.Generic;
+using UGF.Application.Runtime;
+
 namespace UGF.Module.Coroutines.Runtime
 {
-    public interface ICoroutineModuleDescription
+    public interface ICoroutineModuleDescription : IApplicationModuleDescription
     {
-        bool DontDestroyOnLoadExecuter { get; }
+        string DefaultExecuterId { get; }
+        IReadOnlyDictionary<string, ICoroutineExecuterBuilder> Executers { get; }
     }
 }
