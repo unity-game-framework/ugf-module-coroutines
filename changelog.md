@@ -1,32 +1,37 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased - 2019-01-01
-- [Commits](https://github.com/unity-game-framework/ugf-module-coroutines/compare/0.0.0...0.0.0)
-- [Milestone](https://github.com/unity-game-framework/ugf-module-coroutines/milestone/0?closed=1)
+## [1.0.0-preview](https://github.com/unity-game-framework/ugf-module-coroutines/releases/tag/1.0.0-preview) - 2021-05-26  
 
-### Added
-- Nothing.
+### Release Notes
+
+- [Milestone](https://github.com/unity-game-framework/ugf-module-coroutines/milestone/3?closed=1)  
+    
 
 ### Changed
-- Nothing.
 
-### Deprecated
-- Nothing.
+- Update dependencies to use executer initialization ([#10](https://github.com/unity-game-framework/ugf-module-coroutines/pull/10))  
+    - Update dependencies: `com.ugf.coroutines` to `1.0.0-preview.1` version.
+    - Add `CoroutineExecuterGameObjectAsset` to create `CoroutineExecuterGameObject` executer.
+    - Add `CoroutineModule` initialize and uninitialize logs.
+    - Change `CoroutineModule` to initialize and uninitialize created executers.
+    - Remove `CoroutineExecuterUnityAsset` class, replaced by `CoroutineExecuterGameObjectAsset`.
+- Update application dependency package ([#8](https://github.com/unity-game-framework/ugf-module-coroutines/pull/8))  
+    - Update project to Unity `2021.1` version.
+    - Update dependencies: `com.ugf.application` to `8.0.0-preview.7` and `com.ugf.coroutines` to `1.0.0-preview`.
+    - Update package publish registry.
+    - Add `ICoroutineExecuterBuilder` interface and `CoroutineExecuterAsset` class as default implementation.
+    - Add `CoroutineExecuterUnityAsset` class to build `CoroutineExecuterUnity` executer class.
+    - Rework `CoroutineModule`, `CoroutineModuleDescription ` and `CoroutineModuleAsset` module classes.
+- Update project workflows ([#5](https://github.com/unity-game-framework/ugf-module-coroutines/issues/5))  
+    - Update project workflows.
 
-### Removed
-- Nothing.
+## [0.2.0-preview](https://github.com/unity-game-framework/ugf-module-coroutines/releases/tag/0.2.0-preview) - 2019-12-09  
 
-### Fixed
-- Nothing.
-
-### Security
-- Nothing.
-
-## 0.2.0-preview - 2019-12-09
 - [Commits](https://github.com/unity-game-framework/ugf-module-coroutines/compare/0.1.0-preview...0.2.0-preview)
 - [Milestone](https://github.com/unity-game-framework/ugf-module-coroutines/milestone/2?closed=1)
 
@@ -41,12 +46,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Package dependencies:
     - `com.ugf.module`: `0.2.0-preview`.
 
-## 0.1.0-preview - 2019-10-10
+## [0.1.0-preview](https://github.com/unity-game-framework/ugf-module-coroutines/releases/tag/0.1.0-preview) - 2019-10-10  
+
 - [Commits](https://github.com/unity-game-framework/ugf-module-coroutines/compare/b36632a...0.1.0-preview)
 - [Milestone](https://github.com/unity-game-framework/ugf-module-coroutines/milestone/1?closed=1)
 
 ### Added
 - This is a initial release.
 
----
-> Unity Game Framework | Copyright 2019
+

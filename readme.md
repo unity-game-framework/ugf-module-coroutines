@@ -4,14 +4,14 @@ UGF.Module.Coroutines
 
 ## Info
 
-- **Version**: `0.2.0-preview`
-- **Unity**: `2019.3`
+- **Version**: `1.0.0-preview`
+- **Unity**: `2021.1`
 - **API Compatibility Level**: `.NET Standard 2.0`
 
 ### Dependencies
 
-- `com.ugf.application`: `3.0.0-preview`
-- `com.ugf.coroutines`: `0.1.0-preview`
+- `com.ugf.application`: `8.0.0-preview.7`
+- `com.ugf.coroutines`: `1.0.0-preview.1`
 
 
 ### Description
