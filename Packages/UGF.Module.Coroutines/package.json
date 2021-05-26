@@ -1,15 +1,25 @@
 {
-    "name": "com.ugf.module.coroutines",
-    "displayName": "UGF.Module.Coroutines",
-    "version": "0.2.0-preview",
-    "unity": "2019.3",
-    "description": "No description.",
-    "author": {
-        "name": "Unity Game Framework",
-        "url": "https://github.com/unity-game-framework"
-    },
-    "dependencies": {
-        "com.ugf.application": "3.0.0-preview",
-        "com.ugf.coroutines": "0.1.0-preview"
-    }
+  "name": "com.ugf.module.coroutines",
+  "displayName": "UGF.Module.Coroutines",
+  "version": "0.2.0-preview",
+  "unity": "2019.3",
+  "apiCompatibility": ".NET Standard 2.0",
+  "description": "No description.",
+  "author": {
+    "name": "Unity Game Framework",
+    "url": "https://github.com/unity-game-framework"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "changelogUrl": "",
+  "licensesUrl": "",
+  "publishConfig": {
+    "registry": "https://unitygameframework.jfrog.io/artifactory/api/npm/default"
+  },
+  "dependencies": {
+    "com.ugf.application": "3.0.0-preview",
+    "com.ugf.coroutines": "0.1.0-preview"
+  }
 }
