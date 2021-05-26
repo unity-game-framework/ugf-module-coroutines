@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UGF.Application.Runtime;
 using UGF.Coroutines.Runtime;
+using UGF.Logs.Runtime;
 using UGF.RuntimeTools.Runtime.Providers;
 
 namespace UGF.Module.Coroutines.Runtime
@@ -26,9 +27,17 @@ namespace UGF.Module.Coroutines.Runtime
         {
             base.OnInitialize();
 
+            Log.Debug("Coroutine module initialize", new
+            {
+                defaultExecuter = Description.DefaultExecuterId,
+                executers = Description.Executers.Count
+            });
+
             foreach (KeyValuePair<string, ICoroutineExecuterBuilder> pair in Description.Executers)
             {
                 ICoroutineExecuter executer = pair.Value.Build();
+
+                executer.Initialize();
 
                 Executers.Add(pair.Key, executer);
             }
@@ -37,6 +46,16 @@ namespace UGF.Module.Coroutines.Runtime
         protected override void OnUninitialize()
         {
             base.OnUninitialize();
+
+            Log.Debug("Coroutine module uninitialize", new
+            {
+                executers = Executers.Entries.Count
+            });
+
+            foreach (KeyValuePair<string, ICoroutineExecuter> pair in Executers.Entries)
+            {
+                pair.Value.Uninitialize();
+            }
 
             Executers.Clear();
         }

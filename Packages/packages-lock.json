@@ -20,10 +20,12 @@
       "url": "https://unitygameframework.jfrog.io/artifactory/api/npm/default"
     },
     "com.ugf.coroutines": {
-      "version": "1.0.0-preview",
+      "version": "1.0.0-preview.1",
       "depth": 1,
       "source": "registry",
-      "dependencies": {},
+      "dependencies": {
+        "com.ugf.initialize": "2.6.0"
+      },
       "url": "https://unitygameframework.jfrog.io/artifactory/api/npm/default"
     },
     "com.ugf.customsettings": {
@@ -84,7 +86,7 @@
       "source": "embedded",
       "dependencies": {
         "com.ugf.application": "8.0.0-preview.7",
-        "com.ugf.coroutines": "1.0.0-preview"
+        "com.ugf.coroutines": "1.0.0-preview.1"
       }
     },
     "com.ugf.runtimetools": {
