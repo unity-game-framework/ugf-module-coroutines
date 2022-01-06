@@ -1,7 +1,7 @@
 {
   "name": "com.ugf.module.coroutines",
   "displayName": "UGF.Module.Coroutines",
-  "version": "1.0.0-preview",
+  "version": "1.0.0",
   "unity": "2021.2",
   "apiCompatibility": ".NET Standard 2.1",
   "description": "Module to manage coroutines run in application.",
