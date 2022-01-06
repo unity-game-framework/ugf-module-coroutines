@@ -33,13 +33,13 @@ namespace UGF.Module.Coroutines.Runtime
                 executers = Description.Executers.Count
             });
 
-            foreach (KeyValuePair<string, ICoroutineExecuterBuilder> pair in Description.Executers)
+            foreach ((string key, ICoroutineExecuterBuilder value) in Description.Executers)
             {
-                ICoroutineExecuter executer = pair.Value.Build();
+                ICoroutineExecuter executer = value.Build();
 
                 executer.Initialize();
 
-                Executers.Add(pair.Key, executer);
+                Executers.Add(key, executer);
             }
         }
 
@@ -52,9 +52,9 @@ namespace UGF.Module.Coroutines.Runtime
                 executers = Executers.Entries.Count
             });
 
-            foreach (KeyValuePair<string, ICoroutineExecuter> pair in Executers.Entries)
+            foreach ((string _, ICoroutineExecuter value) in Executers.Entries)
             {
-                pair.Value.Uninitialize();
+                value.Uninitialize();
             }
 
             Executers.Clear();
