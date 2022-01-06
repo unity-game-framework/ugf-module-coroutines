@@ -20,6 +20,6 @@
   },
   "dependencies": {
     "com.ugf.application": "8.0.0",
-    "com.ugf.coroutines": "1.0.0-preview.3"
+    "com.ugf.coroutines": "1.0.0"
   }
 }
