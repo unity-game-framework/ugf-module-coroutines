@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UGF.Application.Runtime;
-using UGF.EditorTools.Runtime.IMGUI.AssetReferences;
-using UGF.EditorTools.Runtime.IMGUI.Attributes;
+using UGF.EditorTools.Runtime.Assets;
+using UGF.EditorTools.Runtime.Ids;
 using UnityEngine;
 
 namespace UGF.Module.Coroutines.Runtime
@@ -9,12 +9,12 @@ namespace UGF.Module.Coroutines.Runtime
     [CreateAssetMenu(menuName = "Unity Game Framework/Coroutines/Coroutine Module", order = 2000)]
     public class CoroutineModuleAsset : ApplicationModuleAsset<ICoroutineModule, CoroutineModuleDescription>
     {
-        [AssetGuid(typeof(CoroutineExecuterAsset))]
-        [SerializeField] private string m_defaultExecuter;
-        [SerializeField] private List<AssetReference<CoroutineExecuterAsset>> m_executers = new List<AssetReference<CoroutineExecuterAsset>>();
+        [AssetId(typeof(CoroutineExecuterAsset))]
+        [SerializeField] private GlobalId m_defaultExecuter;
+        [SerializeField] private List<AssetIdReference<CoroutineExecuterAsset>> m_executers = new List<AssetIdReference<CoroutineExecuterAsset>>();
 
-        public string DefaultExecuter { get { return m_defaultExecuter; } set { m_defaultExecuter = value; } }
-        public List<AssetReference<CoroutineExecuterAsset>> Executers { get { return m_executers; } }
+        public GlobalId DefaultExecuter { get { return m_defaultExecuter; } set { m_defaultExecuter = value; } }
+        public List<AssetIdReference<CoroutineExecuterAsset>> Executers { get { return m_executers; } }
 
         protected override IApplicationModuleDescription OnBuildDescription()
         {
@@ -26,7 +26,7 @@ namespace UGF.Module.Coroutines.Runtime
 
             for (int i = 0; i < m_executers.Count; i++)
             {
-                AssetReference<CoroutineExecuterAsset> reference = m_executers[i];
+                AssetIdReference<CoroutineExecuterAsset> reference = m_executers[i];
 
                 description.Executers.Add(reference.Guid, reference.Asset);
             }

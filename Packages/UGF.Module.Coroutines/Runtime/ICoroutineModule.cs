@@ -1,6 +1,7 @@
 using System.Collections;
 using UGF.Application.Runtime;
 using UGF.Coroutines.Runtime;
+using UGF.EditorTools.Runtime.Ids;
 using UGF.RuntimeTools.Runtime.Providers;
 
 namespace UGF.Module.Coroutines.Runtime
@@ -8,7 +9,7 @@ namespace UGF.Module.Coroutines.Runtime
     public interface ICoroutineModule : IApplicationModule
     {
         new ICoroutineModuleDescription Description { get; }
-        IProvider<string, ICoroutineExecuter> Executers { get; }
+        IProvider<GlobalId, ICoroutineExecuter> Executers { get; }
 
         void Start(IEnumerator enumerator);
         void Stop(IEnumerator enumerator);
