@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using UGF.Application.Runtime;
+using UGF.EditorTools.Runtime.Ids;
 
 namespace UGF.Module.Coroutines.Runtime
 {
     public class CoroutineModuleDescription : ApplicationModuleDescription, ICoroutineModuleDescription
     {
-        public string DefaultExecuterId { get; set; }
-        public Dictionary<string, ICoroutineExecuterBuilder> Executers { get; } = new Dictionary<string, ICoroutineExecuterBuilder>();
+        public GlobalId DefaultExecuterId { get; set; }
+        public Dictionary<GlobalId, ICoroutineExecuterBuilder> Executers { get; } = new Dictionary<GlobalId, ICoroutineExecuterBuilder>();
 
-        IReadOnlyDictionary<string, ICoroutineExecuterBuilder> ICoroutineModuleDescription.Executers { get { return Executers; } }
+        IReadOnlyDictionary<GlobalId, ICoroutineExecuterBuilder> ICoroutineModuleDescription.Executers { get { return Executers; } }
     }
 }

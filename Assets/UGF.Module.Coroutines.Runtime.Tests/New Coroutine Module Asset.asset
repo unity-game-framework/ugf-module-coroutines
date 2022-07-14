@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f16bd0a6d6b98f4984fb7e5a443716c, type: 3}
   m_Name: New Coroutine Module Asset
   m_EditorClassIdentifier: 
-  m_defaultExecuter: 28be3aa5e95ba0a4b9784009d545d09e
+  m_defaultExecuter:
+    m_first: 11575633519983868581
+    m_second: 11443723434434001081
   m_executers:
-  - m_guid: 28be3aa5e95ba0a4b9784009d545d09e
+  - m_guid:
+      m_first: 11575633519983868581
+      m_second: 11443723434434001081
     m_asset: {fileID: 11400000, guid: 28be3aa5e95ba0a4b9784009d545d09e, type: 2}

@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UGF.Application.Runtime;
 using UGF.Coroutines.Runtime;
+using UGF.EditorTools.Runtime.Ids;
 using UGF.Logs.Runtime;
 using UGF.RuntimeTools.Runtime.Providers;
 
@@ -10,15 +10,15 @@ namespace UGF.Module.Coroutines.Runtime
 {
     public class CoroutineModule : ApplicationModule<CoroutineModuleDescription>, ICoroutineModule
     {
-        public IProvider<string, ICoroutineExecuter> Executers { get; }
+        public IProvider<GlobalId, ICoroutineExecuter> Executers { get; }
 
         ICoroutineModuleDescription ICoroutineModule.Description { get { return Description; } }
 
-        public CoroutineModule(CoroutineModuleDescription description, IApplication application) : this(description, application, new Provider<string, ICoroutineExecuter>())
+        public CoroutineModule(CoroutineModuleDescription description, IApplication application) : this(description, application, new Provider<GlobalId, ICoroutineExecuter>())
         {
         }
 
-        public CoroutineModule(CoroutineModuleDescription description, IApplication application, IProvider<string, ICoroutineExecuter> executers) : base(description, application)
+        public CoroutineModule(CoroutineModuleDescription description, IApplication application, IProvider<GlobalId, ICoroutineExecuter> executers) : base(description, application)
         {
             Executers = executers ?? throw new ArgumentNullException(nameof(executers));
         }
@@ -33,7 +33,7 @@ namespace UGF.Module.Coroutines.Runtime
                 executers = Description.Executers.Count
             });
 
-            foreach ((string key, ICoroutineExecuterBuilder value) in Description.Executers)
+            foreach ((GlobalId key, ICoroutineExecuterBuilder value) in Description.Executers)
             {
                 ICoroutineExecuter executer = value.Build();
 
@@ -52,7 +52,7 @@ namespace UGF.Module.Coroutines.Runtime
                 executers = Executers.Entries.Count
             });
 
-            foreach ((string _, ICoroutineExecuter value) in Executers.Entries)
+            foreach ((_, ICoroutineExecuter value) in Executers.Entries)
             {
                 value.Uninitialize();
             }
