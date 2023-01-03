@@ -24,10 +24,7 @@ namespace UGF.Module.Coroutines.Editor
 
             m_listExecutersSelection = new ReorderableListSelectionDrawerByPath(m_listExecuters, "m_asset")
             {
-                Drawer =
-                {
-                    DisplayTitlebar = true
-                }
+                Drawer = { DisplayTitlebar = true }
             };
 
             m_listExecuters.Enable();
