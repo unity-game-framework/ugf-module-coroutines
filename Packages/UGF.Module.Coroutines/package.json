@@ -2,7 +2,7 @@
   "name": "com.ugf.module.coroutines",
   "displayName": "UGF.Module.Coroutines",
   "version": "2.0.0-preview",
-  "unity": "2022.1",
+  "unity": "2022.2",
   "apiCompatibility": ".NET Standard 2.1",
   "description": "Module to manage coroutines run in application.",
   "author": {
@@ -19,8 +19,7 @@
     "registry": "https://unitygameframework.jfrog.io/artifactory/api/npm/default"
   },
   "dependencies": {
-    "com.ugf.application": "8.3.0",
-    "com.ugf.coroutines": "1.0.0",
-    "com.ugf.editortools": "2.8.1"
+    "com.ugf.application": "8.4.0",
+    "com.ugf.coroutines": "1.1.0"
   }
 }

@@ -1,4 +1,5 @@
-﻿using UGF.EditorTools.Editor.IMGUI;
+﻿using UGF.EditorTools.Editor.Assets;
+using UGF.EditorTools.Editor.IMGUI;
 using UGF.EditorTools.Editor.IMGUI.Scopes;
 using UGF.Module.Coroutines.Runtime;
 using UnityEditor;
@@ -9,24 +10,21 @@ namespace UGF.Module.Coroutines.Editor
     internal class CoroutineModuleAssetEditor : UnityEditor.Editor
     {
         private SerializedProperty m_propertyDefaultExecuter;
-        private ReorderableListDrawer m_listExecuters;
+        private AssetIdReferenceListDrawer m_listExecuters;
         private ReorderableListSelectionDrawerByPath m_listExecutersSelection;
 
         private void OnEnable()
         {
             m_propertyDefaultExecuter = serializedObject.FindProperty("m_defaultExecuter");
 
-            m_listExecuters = new ReorderableListDrawer(serializedObject.FindProperty("m_executers"))
+            m_listExecuters = new AssetIdReferenceListDrawer(serializedObject.FindProperty("m_executers"))
             {
                 DisplayAsSingleLine = true
             };
 
             m_listExecutersSelection = new ReorderableListSelectionDrawerByPath(m_listExecuters, "m_asset")
             {
-                Drawer =
-                {
-                    DisplayTitlebar = true
-                }
+                Drawer = { DisplayTitlebar = true }
             };
 
             m_listExecuters.Enable();
