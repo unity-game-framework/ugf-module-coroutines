@@ -17,10 +17,7 @@ namespace UGF.Module.Coroutines.Editor
         {
             m_propertyDefaultExecuter = serializedObject.FindProperty("m_defaultExecuter");
 
-            m_listExecuters = new AssetIdReferenceListDrawer(serializedObject.FindProperty("m_executers"))
-            {
-                DisplayAsSingleLine = true
-            };
+            m_listExecuters = new AssetIdReferenceListDrawer(serializedObject.FindProperty("m_executers"));
 
             m_listExecutersSelection = new ReorderableListSelectionDrawerByPath(m_listExecuters, "m_asset")
             {

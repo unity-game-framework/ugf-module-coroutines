@@ -8,7 +8,7 @@ namespace UGF.Module.Coroutines.Runtime
 {
     public interface ICoroutineModule : IApplicationModule
     {
-        new ICoroutineModuleDescription Description { get; }
+        ICoroutineModuleDescription Description { get; }
         IProvider<GlobalId, ICoroutineExecuter> Executers { get; }
 
         void Start(IEnumerator enumerator);
