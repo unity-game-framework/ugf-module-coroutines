@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UGF.Application.Runtime;
+using UGF.Builder.Runtime;
 using UGF.Coroutines.Runtime;
 using UGF.EditorTools.Runtime.Ids;
 using UGF.Logs.Runtime;
@@ -14,6 +15,8 @@ namespace UGF.Module.Coroutines.Runtime
 
         ICoroutineModuleDescription ICoroutineModule.Description { get { return Description; } }
 
+        private readonly ILog m_logger;
+
         public CoroutineModule(CoroutineModuleDescription description, IApplication application) : this(description, application, new Provider<GlobalId, ICoroutineExecuter>())
         {
         }
@@ -21,25 +24,27 @@ namespace UGF.Module.Coroutines.Runtime
         public CoroutineModule(CoroutineModuleDescription description, IApplication application, IProvider<GlobalId, ICoroutineExecuter> executers) : base(description, application)
         {
             Executers = executers ?? throw new ArgumentNullException(nameof(executers));
+
+            m_logger = Log.CreateWithLabel<CoroutineModule>();
         }
 
         protected override void OnInitialize()
         {
             base.OnInitialize();
 
-            Log.Debug("Coroutine module initialize", new
+            m_logger.Debug("Initialize", new
             {
                 defaultExecuter = Description.DefaultExecuterId,
                 executers = Description.Executers.Count
             });
 
-            foreach ((GlobalId key, ICoroutineExecuterBuilder value) in Description.Executers)
+            foreach ((GlobalId id, IBuilder<ICoroutineExecuter> value) in Description.Executers)
             {
                 ICoroutineExecuter executer = value.Build();
 
                 executer.Initialize();
 
-                Executers.Add(key, executer);
+                Executers.Add(id, executer);
             }
         }
 
@@ -47,7 +52,7 @@ namespace UGF.Module.Coroutines.Runtime
         {
             base.OnUninitialize();
 
-            Log.Debug("Coroutine module uninitialize", new
+            m_logger.Debug("Uninitialize", new
             {
                 executers = Executers.Entries.Count
             });
